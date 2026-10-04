@@ -1,0 +1,834 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sejal Sunil Kadam - MBA Analytics Portfolio</title>
+<meta name="description" content="Sejal Sunil Kadam - MBA Analytics, IIM Kashipur. Supply chain, analytics, GenAI and consulting portfolio.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;1,9..144,500&family=IBM+Plex+Mono:wght@400;500;600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:       #22282B;
+    --navy-2:     #3A4245;
+    --navy-soft:  #4C6180;
+    --gold:       #6B8F71;
+    --gold-dark:  #4F6B54;
+    --gold-bg:    #EDF1EC;
+    --paper:      #F4F5F7;
+    --band-white: #FFFFFF;
+    --line:       #DDE2E8;
+    --ink:        #16202E;
+    --ink-soft:   #5B6472;
+    --shadow: 0 10px 30px rgba(16,35,63,.08);
+    --max-w: 1160px;
+  }
+
+  *{ box-sizing:border-box; }
+  html{ scroll-behavior:smooth; }
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Inter', sans-serif;
+    font-size:16px;
+    line-height:1.7;
+    -webkit-font-smoothing:antialiased;
+  }
+  ::selection{ background:var(--gold-bg); color:var(--gold-dark); }
+  img{ max-width:100%; display:block; }
+
+  a{ color:var(--navy-2); text-decoration-thickness:1px; text-underline-offset:3px; }
+  a:hover{ color:var(--gold-dark); }
+  a:focus-visible, button:focus-visible{ outline:2px solid var(--gold); outline-offset:3px; }
+
+  .wrap{ max-width:var(--max-w); margin:0 auto; padding:0 5vw; }
+
+  /* ---------- Sticky nav ---------- */
+  nav.topnav{
+    position:sticky; top:0; z-index:60;
+    background:rgba(255,255,255,.92);
+    backdrop-filter:saturate(140%) blur(8px);
+    border-bottom:1px solid var(--line);
+  }
+  .navbar{
+    max-width:var(--max-w); margin:0 auto;
+    display:flex; align-items:center; justify-content:space-between;
+    padding:12px 5vw;
+  }
+  .nav-brand{ display:flex; align-items:center; gap:10px; text-decoration:none; }
+  .nav-brand img{ height:52px; width:auto; }
+  .nav-brand span{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:13px; letter-spacing:.08em;
+    color:var(--navy); font-weight:600;
+  }
+  .nav-links{ display:flex; gap:26px; align-items:center; flex-wrap:wrap; }
+  .nav-links a{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12px; letter-spacing:.03em;
+    color:var(--ink-soft); text-decoration:none;
+  }
+  .nav-links a:hover{ color:var(--navy); }
+  .nav-links .btn{ padding:8px 14px; font-size:11.5px; }
+
+  /* ---------- Hero (full-bleed navy banner) ---------- */
+  header.hero{
+    background:
+      repeating-linear-gradient(115deg, rgba(255,255,255,.035) 0px, rgba(255,255,255,.035) 1px, transparent 1px, transparent 64px),
+      linear-gradient(135deg, #14181A 0%, var(--navy) 45%, var(--navy-2) 100%);
+    color:#fff;
+    padding:72px 0 0;
+    position:relative;
+    overflow:hidden;
+  }
+  .hero-inner{
+    display:grid;
+    grid-template-columns: 240px 1fr;
+    gap:40px;
+    align-items:center;
+    padding-bottom:44px;
+  }
+  .eyebrow{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:11.5px;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+    color:#A9B4C4;
+    display:flex;
+    justify-content:space-between;
+    margin-bottom:28px;
+  }
+  .hero-photo{
+    width:240px; height:240px; border-radius:50%;
+    overflow:hidden; position:relative;
+    border:5px solid rgba(255,255,255,.9);
+    box-shadow:0 12px 30px rgba(0,0,0,.35);
+    background:var(--gold);
+  }
+  .hero-photo img{ width:100%; height:100%; object-fit:cover; }
+  .photo-fallback{
+    position:absolute; inset:0; display:flex; align-items:center; justify-content:center;
+    font-family:'Fraunces', serif; font-weight:600; font-size:4rem; color:#fff;
+    background:linear-gradient(160deg, var(--gold), var(--gold-dark));
+  }
+  h1.name{
+    font-family:'Fraunces', serif;
+    font-weight:600;
+    font-size:clamp(2.2rem, 4.2vw, 3.2rem);
+    margin:0 0 8px;
+    letter-spacing:-0.01em;
+    color:#fff;
+  }
+  .role-line{
+    font-family:'Fraunces', serif;
+    font-style:italic;
+    font-size:1.18rem;
+    color:var(--gold);
+    margin:0 0 20px;
+  }
+  .contact-row{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12.5px;
+    color:#C6CEDA;
+    display:flex;
+    flex-wrap:wrap;
+    gap:6px 0;
+    margin-bottom:24px;
+  }
+  .contact-row span:not(:last-child)::after{ content:"  ·  "; color:#3E526E; }
+  .contact-row a{ color:#fff; }
+  .contact-row a:hover{ color:var(--gold); }
+
+  .cta-row{ display:flex; gap:12px; flex-wrap:wrap; }
+  .btn{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12.5px;
+    letter-spacing:.04em;
+    text-decoration:none;
+    padding:11px 18px;
+    border:1px solid var(--navy);
+    color:var(--navy);
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    transition:all .15s ease;
+    background:none;
+    cursor:pointer;
+    border-radius:2px;
+  }
+  .btn:hover{ background:var(--navy); color:#fff; }
+  .btn.primary{ background:var(--gold); border-color:var(--gold); color:#16240F; }
+  .btn.primary:hover{ background:var(--gold-dark); border-color:var(--gold-dark); color:#fff; }
+  .hero .btn{ border-color:rgba(255,255,255,.5); color:#fff; }
+  .hero .btn:hover{ background:#fff; color:var(--navy); }
+  .hero .btn.primary{ background:var(--gold); border-color:var(--gold); color:#16240F; }
+  .hero .btn.primary:hover{ background:#fff; color:var(--navy); }
+
+  /* Table of contents strip */
+  .toc{
+    display:grid;
+    grid-template-columns:repeat(8, 1fr);
+    border-top:1px solid rgba(255,255,255,.15);
+  }
+  .toc a{
+    text-decoration:none;
+    padding:14px 4px;
+    text-align:center;
+    border-right:1px solid rgba(255,255,255,.15);
+    font-family:'IBM Plex Mono', monospace;
+    font-size:10.5px;
+    letter-spacing:.03em;
+    color:#B8C2D1;
+  }
+  .toc a:last-child{ border-right:none; }
+  .toc a span{ display:block; color:var(--gold); font-size:10px; margin-bottom:3px; }
+  .toc a:hover{ background:rgba(255,255,255,.06); color:#fff; }
+
+  /* ---------- Bands ---------- */
+  .band{ width:100%; }
+  .band-white{ background:var(--band-white); }
+  .band-tint{ background:var(--paper); }
+
+  section.exhibit{
+    padding:64px 0;
+    scroll-margin-top:66px;
+    opacity:0;
+    transform:translateY(16px);
+    transition:opacity .6s ease, transform .6s ease;
+  }
+  section.exhibit.in{ opacity:1; transform:translateY(0); }
+
+  .exhibit-head{
+    display:flex;
+    align-items:baseline;
+    gap:16px;
+    margin-bottom:34px;
+  }
+  .exhibit-label{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12px;
+    letter-spacing:.12em;
+    color:var(--gold-dark);
+    white-space:nowrap;
+    background:var(--gold-bg);
+    padding:4px 10px;
+    border-radius:2px;
+  }
+  .exhibit-head h2{
+    font-family:'Fraunces', serif;
+    font-weight:600;
+    font-size:1.65rem;
+    margin:0;
+    color:var(--navy);
+  }
+  .exhibit-rule{ height:2px; background:var(--navy); width:46px; margin-top:14px; }
+
+  .summary p{ font-size:1.08rem; max-width:76ch; color:var(--ink); }
+  .summary p + p{ margin-top:16px; }
+
+  .tag{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:11px;
+    letter-spacing:.05em;
+    padding:4px 9px;
+    border-radius:2px;
+    white-space:nowrap;
+    display:inline-block;
+  }
+  .tag.verified{ background:#E4EDE7; color:#2F6F5E; }
+  .tag.metric{ background:var(--gold-bg); color:var(--gold-dark); }
+  .tag.addlink{ background:#FBEFE0; color:#9A5D12; }
+
+  /* Education table */
+  .edu-table{ width:100%; border-collapse:collapse; }
+  .edu-table th{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:11px; text-transform:uppercase; letter-spacing:.06em;
+    color:var(--ink-soft); text-align:left;
+    padding:0 14px 12px 0; border-bottom:2px solid var(--navy);
+  }
+  .edu-table td{
+    padding:16px 14px 16px 0;
+    border-bottom:1px solid var(--line);
+    font-size:.97rem; vertical-align:top;
+  }
+  .edu-table td.degree{ font-weight:600; font-family:'Fraunces', serif; font-size:1.05rem; color:var(--navy); }
+  .edu-table td.score{ font-weight:600; white-space:nowrap; color:var(--gold-dark); }
+  .edu-table tr:last-child td{ border-bottom:none; }
+
+  /* Cards grid (Projects / Certifications) */
+  .card-grid{ display:grid; gap:22px; }
+
+  .entry{
+    background:var(--band-white);
+    border:1px solid var(--line);
+    border-radius:6px;
+    padding:28px 30px;
+    box-shadow:var(--shadow);
+    transition:transform .2s ease, box-shadow .2s ease;
+  }
+  .entry:hover{ transform:translateY(-3px); box-shadow:0 16px 40px rgba(16,35,63,.13); }
+  .entry-top{
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-start;
+    gap:12px;
+    flex-wrap:wrap;
+  }
+  .entry-title{
+    font-family:'Fraunces', serif;
+    font-weight:600;
+    font-size:1.28rem;
+    margin:0 0 4px;
+    color:var(--navy);
+  }
+  .entry-meta{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:11.5px;
+    color:var(--ink-soft);
+    margin:0 0 14px;
+  }
+  .entry ul{ margin:14px 0 0; padding-left:18px; }
+  .entry li{ font-size:.96rem; margin-bottom:7px; }
+  .entry .tags{ display:flex; gap:16px; flex-wrap:wrap; margin-top:18px; align-items:center; }
+  .entry a.repo, .entry a.demo{ font-family:'IBM Plex Mono', monospace; font-size:12.5px; font-weight:600; }
+
+  /* Media placeholders - screenshots / video */
+  .media-grid{
+    display:grid; grid-template-columns:1fr 1fr; gap:16px;
+    margin-top:18px;
+  }
+  .media-box{
+    aspect-ratio:16/10;
+    border:1.5px dashed #C9CFD9;
+    border-radius:4px;
+    background:repeating-linear-gradient(135deg, #FBFBFC, #FBFBFC 10px, #F1F2F4 10px, #F1F2F4 20px);
+    display:flex; flex-direction:column; align-items:center; justify-content:center;
+    text-align:center; padding:14px;
+    color:var(--ink-soft);
+    position:relative;
+    overflow:hidden;
+  }
+  .media-box img{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; }
+  .media-box .ph-icon{ font-size:24px; margin-bottom:6px; }
+  .media-box .ph-label{ font-family:'IBM Plex Mono', monospace; font-size:11px; letter-spacing:.03em; }
+  .media-box .ph-path{ font-family:'IBM Plex Mono', monospace; font-size:9.5px; color:#B7BEC9; margin-top:4px; word-break:break-all; padding:0 6px; }
+
+  .video-box{ aspect-ratio:16/9; margin-top:18px; }
+  .video-box iframe{ width:100%; height:100%; border:0; }
+
+  /* Experience ledger */
+  .ledger-row{
+    display:grid;
+    grid-template-columns: 176px 1fr;
+    gap:24px;
+    padding:26px 0;
+    border-bottom:1px solid var(--line);
+  }
+  .ledger-row:first-child{ padding-top:0; }
+  .ledger-row:last-child{ border-bottom:none; padding-bottom:0; }
+  .ledger-date{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12px;
+    color:var(--ink-soft);
+    padding-top:3px;
+  }
+  .ledger-role{
+    font-family:'Fraunces', serif;
+    font-weight:600;
+    font-size:1.14rem;
+    margin:0 0 2px;
+    color:var(--navy);
+  }
+  .ledger-org{ font-size:.94rem; color:var(--ink-soft); margin:0 0 12px; font-style:italic; }
+  .ledger-role-block ul{ margin:0; padding-left:18px; }
+  .ledger-role-block li{ margin-bottom:7px; font-size:.96rem; }
+  .ledger-role-block li b{ color:var(--gold-dark); font-weight:600; }
+
+  /* Capabilities / skills */
+  .cap-group{ margin-bottom:22px; }
+  .cap-group h3{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:11.5px;
+    letter-spacing:.08em;
+    text-transform:uppercase;
+    color:var(--ink-soft);
+    margin:0 0 12px;
+  }
+  .cap-pills{ display:flex; flex-wrap:wrap; gap:9px; }
+  .pill{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12px;
+    padding:7px 12px;
+    background:var(--band-white);
+    border:1px solid var(--line);
+    border-radius:3px;
+    color:var(--ink);
+  }
+
+  /* Certifications */
+  .cert-grid{ grid-template-columns:repeat(2, 1fr); }
+  .cert-card{
+    background:var(--band-white);
+    border:1px solid var(--line);
+    border-radius:6px;
+    padding:22px 24px;
+    box-shadow:var(--shadow);
+    display:flex; align-items:flex-start; gap:16px;
+    transition:transform .2s ease, box-shadow .2s ease;
+  }
+  .cert-card:hover{ transform:translateY(-3px); box-shadow:0 16px 40px rgba(16,35,63,.13); }
+  .cert-icon{
+    width:42px; height:42px; border-radius:50%;
+    background:var(--gold-bg); color:var(--gold-dark);
+    display:flex; align-items:center; justify-content:center;
+    font-family:'Fraunces', serif; font-weight:600; font-size:18px;
+    flex-shrink:0;
+  }
+  .cert-card h3{ font-family:'Fraunces', serif; font-size:1.05rem; margin:0 0 4px; color:var(--navy); }
+  .cert-card p{ margin:0 0 10px; font-size:.88rem; color:var(--ink-soft); }
+  .cert-card a{ font-family:'IBM Plex Mono', monospace; font-size:12px; font-weight:600; }
+
+  /* POR + achievements */
+  .por-item{ margin-bottom:26px; }
+  .por-item h3{ font-family:'Fraunces', serif; font-size:1.12rem; margin:0 0 3px; color:var(--navy); }
+  .por-item .sub{ font-size:.9rem; color:var(--ink-soft); font-style:italic; margin:0 0 10px; }
+  .por-item ul{ margin:0; padding-left:18px; }
+  .por-item li{ font-size:.96rem; margin-bottom:6px; }
+
+  .achieve-row{
+    display:flex; justify-content:space-between; align-items:baseline; gap:16px;
+    padding:14px 0; border-bottom:1px dashed var(--line);
+    font-size:.95rem;
+  }
+  .achieve-row:last-child{ border-bottom:none; }
+  .achieve-row .yr{ font-family:'IBM Plex Mono', monospace; font-size:12px; color:var(--ink-soft); white-space:nowrap; }
+
+  /* Contact / closing */
+  .contact-block{
+    background:linear-gradient(135deg, #14181A, var(--navy-2));
+    color:#fff;
+    padding:60px 0;
+    text-align:center;
+  }
+  .contact-block h2{ font-family:'Fraunces', serif; font-size:2rem; margin:0 0 12px; }
+  .contact-block p{ color:#B8C2D1; margin:0 0 26px; font-size:1.02rem; }
+  .contact-block .cta-row{ justify-content:center; }
+  .contact-block .btn{ border-color:rgba(255,255,255,.5); color:#fff; }
+  .contact-block .btn:hover{ background:#fff; color:var(--navy); }
+  .contact-block .btn.primary{ background:var(--gold); border-color:var(--gold); color:#16240F; }
+  .contact-block .btn.primary:hover{ background:var(--gold-dark); border-color:var(--gold-dark); color:#fff; }
+
+  /* Footer */
+  footer{
+    background:var(--band-white);
+    padding:24px 0;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12px;
+    color:var(--ink-soft);
+  }
+  footer .wrap{
+    display:flex;
+    justify-content:space-between;
+    flex-wrap:wrap;
+    gap:10px;
+  }
+  footer a{ color:var(--ink-soft); }
+
+  @media (max-width:860px){
+    .nav-links{ display:none; }
+    .hero-inner{ grid-template-columns:1fr; text-align:center; }
+    .hero-photo{ margin:0 auto; }
+    .contact-row{ justify-content:center; }
+    .cta-row{ justify-content:center; }
+    .toc{ grid-template-columns:repeat(3,1fr); }
+    .toc a{ border-right:1px solid rgba(255,255,255,.15); border-bottom:1px solid rgba(255,255,255,.15); }
+    .ledger-row{ grid-template-columns:1fr; gap:6px; }
+    .eyebrow{ flex-direction:column; gap:4px; }
+    footer .wrap{ flex-direction:column; text-align:center; justify-content:center; }
+    .media-grid{ grid-template-columns:1fr; }
+    .cert-grid{ grid-template-columns:1fr; }
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    section.exhibit{ transition:none; opacity:1; transform:none; }
+    html{ scroll-behavior:auto; }
+  }
+</style>
+</head>
+<body>
+
+<nav class="topnav">
+  <div class="navbar">
+    <a href="#top" class="nav-brand">
+      <img src="ksplogo.png" alt="IIM Kashipur" onerror="this.style.display='none';">
+      <span>IIM, KASHIPUR</span>
+    </a>
+    <div class="nav-links">
+      <a href="#summary">About</a>
+      <a href="#experience">Experience</a>
+      <a href="#projects">Projects</a>
+      <a href="#skills">Skills</a>
+      <a href="#certifications">Certifications</a>
+      <a href="#por">Leadership</a>
+      <a class="btn" href="Sejal_CV.pdf" download>Download CV</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="wrap">
+    <div class="hero-inner">
+      <div class="hero-photo">
+        <!-- Photo: place a file named exactly "photo.JPG" in this same folder. -->
+        <img src="photo.JPG" alt="Sejal Sunil Kadam"
+             onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+        <div class="photo-fallback" style="display:none;">SK</div>
+      </div>
+      <div>
+        <h1 class="name">Sejal Sunil Kadam</h1>
+        <p class="role-line">MBA - Analytics, IIM Kashipur (2025–27)<br>Supply Chain / Analytics / Consulting</p>
+        <div class="contact-row">
+          <span>Mumbai, India</span>
+          <span>+91-9324214592</span>
+          <span><a href="mailto:sejal.mbaa25135@iimkashipur.ac.in">sejal.mbaa25135@iimkashipur.ac.in</a></span>
+          <span><a href="https://www.linkedin.com/in/sejal-kadam-667357226/" target="_blank" rel="noopener">LinkedIn</a></span>
+          <span><a href="https://github.com/sejalkadam" target="_blank" rel="noopener">GitHub</a></span>
+        </div>
+        <div class="cta-row">
+          <a class="btn primary" href="Sejal_CV.pdf" download>&#8595; Download CV (PDF)</a>
+          <a class="btn" href="mailto:sejal.mbaa25135@iimkashipur.ac.in">Get in touch</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="toc">
+    <a href="#summary"><span>A</span>Summary</a>
+    <a href="#education"><span>B</span>Education</a>
+    <a href="#experience"><span>C</span>Experience</a>
+    <a href="#projects"><span>D</span>Projects</a>
+    <a href="#skills"><span>E</span>Skills</a>
+    <a href="#certifications"><span>F</span>Certifications</a>
+    <a href="#por"><span>G</span>Leadership</a>
+    <a href="#achievements"><span>H</span>Achievements</a>
+  </div>
+</header>
+
+<div class="band band-white">
+  <div class="wrap">
+    <section class="exhibit" id="summary">
+      <div class="exhibit-head">
+        <span class="exhibit-label">EXHIBIT A</span>
+        <h2>Summary</h2>
+      </div>
+      <div class="summary">
+        <p>MBA candidate with a software engineering foundation, skilled at breaking down business problems into data-backed recommendations. My work spans statistical forecasting and BI dashboards for supply chain decisions, and GenAI/LLM pipelines for operational efficiency - backed by platform engineering experience in live product environments. <span class="tag verified">verified</span></p>
+        <p>Seeking full-time roles in Supply Chain, Analytics, or Consulting. The common thread across my work: quantify the problem first, then build the smallest system that solves it - <span class="tag metric">~22% WMAPE</span> <span class="tag metric">30% performance gain</span> <span class="tag metric">90%+ fraud detection accuracy</span></p>
+      </div>
+    </section>
+  </div>
+</div>
+
+<div class="band band-tint">
+  <div class="wrap">
+    <section class="exhibit" id="education">
+      <div class="exhibit-head">
+        <span class="exhibit-label">EXHIBIT B</span>
+        <h2>Education</h2>
+      </div>
+      <table class="edu-table">
+        <thead>
+          <tr><th>Degree</th><th>Institute</th><th>Year</th><th>Score</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="degree">MBA – Analytics</td>
+            <td>Indian Institute of Management (IIM), Kashipur</td>
+            <td>2025 – 2027</td>
+            <td class="score">Pursuing</td>
+          </tr>
+          <tr>
+            <td class="degree">B.Tech – Computer Science</td>
+            <td>Maharashtra Institute of Technology, Pune</td>
+            <td>2019 – 2023</td>
+            <td class="score">9.53 / 10 CGPA</td>
+          </tr>
+          <tr>
+            <td class="degree">XII – State Board</td>
+            <td>Pace Junior College, Navi Mumbai</td>
+            <td>2019</td>
+            <td class="score">73.54%</td>
+          </tr>
+          <tr>
+            <td class="degree">X – CBSE</td>
+            <td>D.A.V Public School, Navi Mumbai</td>
+            <td>2017</td>
+            <td class="score">10 / 10 CGPA</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+  </div>
+</div>
+
+<div class="band band-white">
+  <div class="wrap">
+    <section class="exhibit" id="experience">
+      <div class="exhibit-head">
+        <span class="exhibit-label">EXHIBIT C</span>
+        <h2>Work Experience</h2>
+      </div>
+      <div class="ledger-row">
+        <div class="ledger-date">Apr 2026 – May 2026</div>
+        <div class="ledger-role-block">
+          <p class="ledger-role">Supply Chain Intern <span style="font-weight:400; font-style:italic; color:var(--ink-soft); font-size:.85rem;">| Manufacturing &amp; Excellence Department</span></p>
+          <p class="ledger-org">Godrej Agrovet, Mumbai</p>
+          <ul>
+            <li>Addressed a business-critical demand forecasting gap - sales returns had nearly doubled (<b>17% to 32%</b> over 3 years) due to manager intuition-driven planning - by building a statistical prediction pipeline across Crop Care, achieving <b>~22% WMAPE</b> at annual level</li>
+            <li>Performed <b>ABC-XYZ segmentation across ~450 SKUs</b>, visualized via a Power BI dashboard adopted by supply chain planners for weekly replenishment decisions; devised models (Croston, Holt-Winters) to address intermittent, seasonal, and lumpy demand</li>
+            <li>Designed <b>LoadOpt Pro</b>, a fleet-loading optimization tool solving 3D bin-packing - gravity-validated placement and dynamic multi-container allocation across <b>8+ truck types</b> - cutting manual dispatch-planning effort via a 50/50 volume-weight efficiency score</li>
+          </ul>
+
+          <div class="tags">
+            <a class="repo" href="https://github.com/sejalkadam/LoadOpt-Pro.git" target="_blank" rel="noopener">View LoadOpt Pro repository →</a>
+          </div>
+        </div>
+      </div>
+      <div class="ledger-row">
+        <div class="ledger-date">Jul 2023 – Feb 2025</div>
+        <div class="ledger-role-block">
+          <p class="ledger-role">Associate Software Engineer</p>
+          <p class="ledger-org">Dure Technologies, Mumbai</p>
+          <ul>
+            <li>Led a high-stakes legacy-to-modern platform migration on an enterprise healthcare system within an aggressive 4-week window - delivering <b>30% performance improvement</b> and <b>10-15% infrastructure cost reduction</b> with zero critical post-migration incidents</li>
+            <li>Enabled healthcare data interoperability by engineering <b>20+ FHIR-compliant interfaces</b>, streamlining cross-system data exchange and reducing integration friction for downstream healthcare partners</li>
+            <li>Strengthened regulatory compliance and application security by identifying and remediating <b>10+ vulnerabilities</b> through VAPT audits</li>
+            <li>Orchestrated <b>15+ integration pipelines</b> while overseeing agile delivery across <b>4 cross-functional teams</b> - accelerating release velocity and aligning sprint planning with product roadmap goals</li>
+          </ul>
+        </div>
+      </div>
+      <div class="ledger-row">
+        <div class="ledger-date">Jul 2022 – Dec 2022</div>
+        <div class="ledger-role-block">
+          <p class="ledger-role">Software Intern</p>
+          <p class="ledger-org">BizAmica Software Pvt Ltd., Pune</p>
+          <ul>
+            <li>Tackled a high-touch, error-prone industry problem - manual processing of high-volume multilingual documents across banking, retail, and logistics - by contributing to an AI-driven Cognitive Document Processing platform enabling auto-classification at scale</li>
+            <li>Processed <b>1000+ documents</b> using OCR/ICR, automating extraction across structured, semi-structured, and unstructured formats</li>
+            <li>Built a computer-vision-based signature verification model for a nationalized bank, achieving <b>90%+ fraud detection accuracy</b> - strengthening document-fraud controls in a high-compliance banking environment</li>
+            <li>Collaborated across <b>5+ live client engagements</b>, driving ML/NLP-led workflow automation that improved KPI tracking by <b>40%</b></li>
+          </ul>
+        </div>
+      </div>
+
+    </section>
+  </div>
+</div>
+
+<div class="band band-tint">
+  <div class="wrap">
+    <section class="exhibit" id="projects">
+      <div class="exhibit-head">
+        <span class="exhibit-label">EXHIBIT D</span>
+        <h2>Projects</h2>
+      </div>
+      <div class="card-grid">
+        <div class="entry">
+          <div class="entry-top">
+            <div>
+              <p class="entry-title">Agentic AI Control Tower for Inventory Exceptions</p>
+              <p class="entry-meta">Agentic AI · Demand Sensing · Inventory Optimization · Python · LLM API</p>
+            </div>
+          </div>
+          <ul>
+            <li>Eliminated late, manual detection of stock-outs and overstock by building an AI agent on a public retail dataset (<b>~300 SKUs</b>) that flags at-risk SKUs from demand and inventory signals and drafts actions (expedite, transfer, reorder) for planner approval</li>
+            <li>Achieved <b>~80% recommendation accuracy</b> on 50 simulated exceptions, with human-in-the-loop approval and an audit log for every action</li>
+            <li>Projected <b>~15% fewer stock-outs</b> at the same inventory level and <b>~5 planner hours saved per week</b>, with a rollout case &amp; risk checks</li>
+          </ul>
+        </div>
+        <div class="entry">
+          <div class="entry-top">
+            <div>
+              <p class="entry-title">UPI Payments Growth Strategy for a Challenger Bank</p>
+              <p class="entry-meta">SQL · Python · Unit Economics · Scenario Modelling · Tableau</p>
+            </div>
+          </div>
+          <ul>
+            <li>Diagnosed a mid-sized bank's UPI gap by benchmarking public NPCI data (36 months, 40+ banks) on share, technical decline rates and growth momentum, sizing a <b>~4 pp share gap worth ~₹2,400 Cr</b> in monthly transaction value</li>
+            <li>Modelled unit economics (cost per transaction, incentive dependence, cross-sell revenue per user) and stress-tested 3 growth strategies (merchant acquisition, credit-on-UPI, reliability-led retention) on break-even and 3-year payback</li>
+            <li>Recommended a phased plan led by a reliability fix (~1.5 pp lower decline rate), projecting <b>~₹900 Cr annual volume</b> and <b>~₹18 Cr revenue recovered</b>, delivered as a Tableau dashboard and a 2-page leadership memo</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </div>
+</div>
+
+<div class="band band-white">
+  <div class="wrap">
+    <section class="exhibit" id="skills">
+      <div class="exhibit-head">
+        <span class="exhibit-label">EXHIBIT E</span>
+        <h2>Skills</h2>
+      </div>
+      <div class="cap-group">
+        <h3>Data &amp; Analytics</h3>
+        <div class="cap-pills">
+          <span class="pill">Python</span><span class="pill">SQL</span><span class="pill">Power BI</span><span class="pill">Tableau</span><span class="pill">Excel</span><span class="pill">EDA</span><span class="pill">ETL</span><span class="pill">Business Analytics</span><span class="pill">Statistics and Hypothesis Testing</span><span class="pill">Regression</span>
+        </div>
+      </div>
+      <div class="cap-group">
+        <h3>Supply Chain &amp; Operations</h3>
+        <div class="cap-pills">
+          <span class="pill">Demand Forecasting</span><span class="pill">Segmentation</span><span class="pill">Inventory Management</span><span class="pill">Logistics</span><span class="pill">Lean Six Sigma</span><span class="pill">Time Series Analysis</span>
+        </div>
+      </div>
+      <div class="cap-group">
+        <h3>AI &amp; ML</h3>
+        <div class="cap-pills">
+          <span class="pill">Machine Learning</span><span class="pill">Deep Learning</span><span class="pill">RAG</span><span class="pill">Vector Databases</span><span class="pill">LangChain</span><span class="pill">Prompt Engineering</span><span class="pill">GenAI</span><span class="pill">LLM Evaluation</span><span class="pill">Agentic AI</span>
+        </div>
+      </div>
+      <div class="cap-group">
+        <h3>Management &amp; Tools</h3>
+        <div class="cap-pills">
+          <span class="pill">Agile/Scrum</span><span class="pill">Jira</span><span class="pill">Cloud Fundamentals</span><span class="pill">MongoDB</span><span class="pill">Git</span><span class="pill">Product Lifecycle Management</span><span class="pill">Stakeholder Management</span>
+        </div>
+      </div>
+
+    </section>
+  </div>
+</div>
+
+<div class="band band-tint">
+  <div class="wrap">
+    <section class="exhibit" id="certifications">
+      <div class="exhibit-head">
+        <span class="exhibit-label">EXHIBIT F</span>
+        <h2>Certifications</h2>
+      </div>
+      <div class="card-grid cert-grid">
+        <div class="cert-card">
+          <div class="cert-icon">L</div>
+          <div>
+            <h3>Lean Six Sigma Green Belt</h3>
+            <p>Certification</p>
+            <a href="https://leansixsigma.gtbharat.in//verify/e74539cc5219" target="_blank" rel="noopener">View certificate →</a>
+          </div>
+        </div>
+        <div class="cert-card">
+          <div class="cert-icon">PL</div>
+          <div>
+            <h3>Microsoft PL-300</h3>
+            <p>Power BI Data Analyst · Microsoft</p>
+          </div>
+        </div>
+        <div class="cert-card">
+          <div class="cert-icon">SQL</div>
+          <div>
+            <h3>SQL</h3>
+            <p>HackerRank</p>
+          </div>
+        </div>
+        <div class="cert-card">
+          <div class="cert-icon">E</div>
+          <div>
+            <h3>Advanced Excel</h3>
+            <p>Certification</p>
+          </div>
+        </div>
+        <div class="cert-card">
+          <div class="cert-icon">AI</div>
+          <div>
+            <h3>Elements of AI</h3>
+            <p>University of Helsinki &amp; MinnaLearn</p>
+            <a href="https://certificates.mooc.fi/validate/rfkacowx5xp" target="_blank" rel="noopener">View certificate →</a>
+          </div>
+        </div>
+        <div class="cert-card">
+          <div class="cert-icon">G</div>
+          <div>
+            <h3>Google Project Management</h3>
+            <p>Professional Certificate · Google</p>
+            <a href="https://www.coursera.org/account/accomplishments/verify/EBZTESHETCG5" target="_blank" rel="noopener">View certificate →</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+</div>
+
+<div class="band band-white">
+  <div class="wrap">
+    <section class="exhibit" id="por">
+      <div class="exhibit-head">
+        <span class="exhibit-label">EXHIBIT G</span>
+        <h2>Positions of Responsibility</h2>
+      </div>
+      <div class="por-item">
+        <h3>Exchange Coordinator</h3>
+        <p class="sub">International Relations Committee, IIM Kashipur · 2025 – Present</p>
+        <ul>
+          <li>Coordinated exchange programs with <b>10+ global universities</b> and led international events/MUNs for <b>150+ participants</b></li>
+          <li>Facilitated a <b>32-student exchange</b> to Alba, Greece</li>
+        </ul>
+      </div>
+      <div class="por-item">
+        <h3>Organizing Committee Member</h3>
+        <p class="sub">Aarohan, MIT-WPU · 2019 – 2021</p>
+        <ul>
+          <li>Drove execution of a flagship cultural fest - including Comedy Nite and Theatre Fest - for <b>1,000+ attendees</b>, mobilizing <b>200+ volunteers</b> across drives including Tree Plantation and Blood Donation</li>
+        </ul>
+      </div>
+    </section>
+  </div>
+</div>
+
+<div class="band band-tint">
+  <div class="wrap">
+    <section class="exhibit" id="achievements">
+      <div class="exhibit-head">
+        <span class="exhibit-label">EXHIBIT H</span>
+        <h2>Extra-Curricular &amp; Academic Achievements</h2>
+      </div>
+      <div class="achieve-row">
+        <span>Published IEEE paper, <a href="https://ieeexplore.ieee.org/document/10507986" target="_blank" rel="noopener"><em>Star Galaxy Classification using Deep Learning</em></a> - a CNN model achieving ~95% classification accuracy</span>
+        <span class="yr">2024</span>
+      </div>
+      <div class="achieve-row"><span>Volunteered with iVolunteer (NGO) - delivered interactive educational and life-skills sessions for 55+ underprivileged children</span><span class="yr">2019</span></div>
+    </section>
+  </div>
+</div>
+
+<div class="contact-block" id="contact">
+  <div class="wrap">
+    <h2>Let's talk</h2>
+    <p>Open to full-time roles in Supply Chain, Analytics and Consulting.</p>
+    <div class="cta-row">
+      <a class="btn primary" href="mailto:sejal.mbaa25135@iimkashipur.ac.in">Email me</a>
+      <a class="btn" href="https://www.linkedin.com/in/sejal-kadam-667357226/" target="_blank" rel="noopener">LinkedIn</a>
+      <a class="btn" href="Sejal_CV.pdf" download>Download CV</a>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 Sejal Sunil Kadam</span>
+    <span><a href="mailto:sejal.mbaa25135@iimkashipur.ac.in">sejal.mbaa25135@iimkashipur.ac.in</a> · <a href="https://www.linkedin.com/in/sejal-kadam-667357226/" target="_blank" rel="noopener">LinkedIn</a></span>
+  </div>
+</footer>
+
+<script>
+  const sections = document.querySelectorAll('.exhibit');
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('in'); });
+  }, { threshold: 0.1 });
+  sections.forEach(s => io.observe(s));
+</script>
+
+</body>
+</html>
